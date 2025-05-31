@@ -55,7 +55,7 @@ spec:
     spec:
       containers:
       - name: frontendcontainers
-        image: raghad90/frontendapp:v9 # docker hub image
+        image: raghad90/frontendapp:v13 # docker hub image
         imagePullPolicy: Always
         ports:
         - containerPort: 80

@@ -19,13 +19,13 @@ function App() {
     console.log('Running in production mode');
   }
   const getPosts = async () => {
-    const response = await fetch('http://10.105.81.238/api/posts')
+    const response = await fetch('/api/posts')
     const posts = await response.json()
     setPosts(posts)
   }
 
   const getUsers = async () => {
-    const response = await fetch('http://10.105.81.238/api/users')
+    const response = await fetch('/api/users')
     const users = await response.json()
     setUsers(users)
   }
