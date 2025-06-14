@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   server: {
     proxy: {
-      '/api/': 'http://localhost:8080/', // backend URL and
+      // '/api/': 'http://localhost:8080/', // backend URL and
     },
   },
   plugins: [react(), tailwindcss(),],
