@@ -1,4 +1,5 @@
 
+
 # Backend deployment and Service
 
 apiVersion: apps/v1
@@ -55,7 +56,7 @@ spec:
     spec:
       containers:
       - name: frontendcontainers
-        image: raghad90/frontendapp:v13 # docker hub image
+        image: raghad90/frontendapp:v14 # docker hub image
         imagePullPolicy: Always
         ports:
         - containerPort: 80
