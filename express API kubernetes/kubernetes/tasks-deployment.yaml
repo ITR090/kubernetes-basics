@@ -1,20 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: users-deployment
+  name: tasks-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: users
+      app: tasks
   template:
     metadata:
       labels:
-        app: users
+        app: tasks
     spec:
       containers:
-      - name: users
-        image: raghad90/kub-demo-users:v4
+      - name: tasks
+        image: raghad90/kub-demo-tasks:v7
+        env:
+         - name: TASKS_FOLDER
+           value: tasks
         envFrom:
          - configMapRef:
             name: api-config

@@ -16,7 +16,7 @@ app.post('/signup', async (req, res) => {
   }
 
   try {
-    const hashedPW = await axios.get(`http://auth-service:80/hashed-password/` + password);
+    const hashedPW = await axios.get(`${process.env.AUTH_API_URL}/hashed-password/` + password);
     // const hashedPW = 'dummy text';
     // since it's a dummy service, we don't really care for the hashed-pw either
     console.log(hashedPW, email);
