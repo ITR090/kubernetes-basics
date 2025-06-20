@@ -6,7 +6,7 @@ This repository contains multiple projects demonstrating how to deploy and conne
 
 ## 📦 Projects Overview
 
-### 1. **kubernetes basics/**
+### 1. **kubernetes basics **
 A basic application project where it define each Kubernetes object such as pod, deployment, configmap , secret and service.
 ### ✅ Prerequisites Steps
 #### 1. Start Minikube:
@@ -14,9 +14,8 @@ A basic application project where it define each Kubernetes object such as pod, 
 minikube start driver=docker
 ```
 ---
-### 2. **react-node kubernetes app 1/**
+### 2. **react-node kubernetes app 1 **
 Tools: Kubernetes (Docker Desktop or Minikube), kubectl
-A frontend-backend project where:
 - **Frontend**: React app served via Nginx.
 - **Backend**: Node.js Express app exposing REST APIs.
 - The frontend communicates with the backend through Kubernetes services, This will create 2 pods for frontend 2 pods for backend.
@@ -49,8 +48,8 @@ kubectl get pods -w
 ```bash
 kubectl delete -f deployment.yaml
 ```
-
-### 3. **express API kubernetes/**
+---
+### 3. **express API kubernetes **
 A microservice-style project where:
 - There separate **Express.js** APIs communicate with each other.
 - Exposes internal and external services for demonstration, Users and tasks are external (loadbalancer) and Auth is internal (clusterip).
@@ -63,3 +62,4 @@ minikube start driver=docker
 ```bash
 kubectl apply -f=auth-deployment.yaml -f=auth-service.yaml -f=configmap.yaml -f=tasks-deployment.yaml -f=tasks-deployment.yaml -f=users-service.yaml -f=tasks-service.yaml
 ```
+---
