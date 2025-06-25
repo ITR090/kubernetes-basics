@@ -17,17 +17,15 @@ minikube start driver=docker
 ```bash
 kubectl apply 
 ```
-
 ---
 ### 2. react-node kubernetes app 1
 - **Frontend**: React app served via Nginx.
 - **Backend**: Node.js Express app exposing REST APIs.
-- The frontend communicates with the backend through Kubernetes services, This will create 2 pods for frontend 2 pods for backend.
-Focus: Kubernetes deployment & service
+- The frontend communicates with the backend through Kubernetes services, This will create 2 pods for frontend 2 pods for backend. <br />
+Focus: Kubernetes deployment & service <br />
 Tools: Kubernetes (Docker Desktop or Minikube), kubectl
 
 ### ✅ Steps
----
 1. Enable Kubernetes via Docker Desktop and install Minikube
 2. Install kubectl
 ```bash
@@ -58,10 +56,10 @@ kubectl delete -f deployment.yaml
 ---
 ### 3. express API kubernetes
 A microservice project where:
-Each microservice deployed in to one pod which communicate with each other via services, Users and tasks are external (loadbalancer) and Auth is internal (clusterip).
+Each microservice deployed in to one pod which communicate with each other via services, Users and tasks are external (loadbalancer) and Auth is internal (clusterip).<br />
 
-Focus: Kubernetes Namespaces & Contexts
-Tools: Kubernetes (Docker Desktop or Minikube), kubectl
+Focus: Kubernetes Namespaces & Contexts. <br />
+Tools: Kubernetes (Docker Desktop or Minikube), kubectl. 
 
 ### ✅ Steps
 1. Start Minikube:
