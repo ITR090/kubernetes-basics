@@ -1,0 +1,12 @@
+#this file will tell Kubernetes how to run pod which ho;d our application
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-pod     #name of our pod
+spec:
+  containers:   # list of containers in the pod
+  - name: hello-container 
+    image: hello-k8s:v1   # the container image build by docker build
+    ports:
+    - containerPort: 3000  # port our application uses 

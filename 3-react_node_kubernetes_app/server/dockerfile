@@ -1,0 +1,21 @@
+
+# Based image
+FROM node:24-slim
+
+# Set working dir
+WORKDIR /server
+
+# Copy package*.json file first
+COPY ./server/package.json ./server/package-lock.json ./
+
+# install pakages
+RUN npm install
+
+# copy the rest of application
+ COPY ./server/ ./
+
+# tell docker what port our app uses 
+EXPOSE 8080
+
+# command to start our application
+CMD [ "node" , "server.js"]

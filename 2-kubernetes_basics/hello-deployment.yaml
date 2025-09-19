@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-deployment
+spec:
+  replicas: 3     # Run 3 copies of our pods
+  selector:
+    matchLabels:
+      app: hello-k8s    # How Deployment finds its pods
+  template:
+    metadata:
+      labels:
+        app: hello-k8s   # Lable for our pods
+    spec:
+      containers:
+      - name: hello-container
+        image: hello-k8s:v1
+        ports:
+        - containerPort: 3000
+        # adding configmap and secret
+        env:
+        - name: MESSAGE    # create configMab from hello-config
+          valueFrom:
+             configMapKeyRef:
+              name: hello-config
+              key: MESSAGE
+        - name: API_KEY
+          valueFrom:
+             secretKeyRef:
+              name: hello-secret
+              key: API_KEY          

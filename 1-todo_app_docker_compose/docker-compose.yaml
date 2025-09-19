@@ -1,0 +1,40 @@
+# version: '3.8'
+services:
+  mongodb:
+    container_name: mongodb
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db # Persist MongoDB data
+    # environment: other way to define env variables
+    #   MONGO_INITDB_DATABASE:
+    #   MONGO_INITDB_ROOT_USERNAME: 
+    #   MONGO_INITDB_ROOT_PASSWORD: 
+    env_file: 
+      - ./backend/env/.env.production # Load environment variables from .env file  
+    
+  backend:
+    container_name: backend
+    build: ./backend # Path to your Node.js backend
+    ports:
+      - "8888:1111" # Or your API's port
+    volumes:
+      - logs:/server/logs # Mount logs directory to persist logs  
+    depends_on:
+      - mongodb
+    env_file:
+      - ./backend/env/.env.production # Load environment variables from .env file  
+
+  frontend:
+    container_name: frontend
+    build: ./frontend # Path to your React frontend
+    ports:
+      - "80:80" # Map frontend port to Nginx's port 80
+    depends_on:
+      - backend # Frontend depends on backend for API calls
+
+# named volumes must be defined at the bottom of the file
+volumes:
+  mongo-data:
+  logs:
