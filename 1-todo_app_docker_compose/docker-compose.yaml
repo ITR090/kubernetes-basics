@@ -18,7 +18,7 @@ services:
     container_name: backend
     build: ./backend # Path to your Node.js backend
     ports:
-      - "8888:1111" # Or your API's port
+      - "1111:1111" # Or your API's port
     volumes:
       - logs:/server/logs # Mount logs directory to persist logs  
     depends_on:
@@ -26,13 +26,14 @@ services:
     env_file:
       - ./backend/env/.env.production # Load environment variables from .env file  
 
-  frontend:
-    container_name: frontend
-    build: ./frontend # Path to your React frontend
+  webserver:
+    container_name: webserver
+    build: ./frontend # Use the same build context as frontend
     ports:
-      - "80:80" # Map frontend port to Nginx's port 80
+      - "80:80" # Expose Nginx on port 80
     depends_on:
-      - backend # Frontend depends on backend for API calls
+      - backend # Nginx depends on backend to route API calls
+      - mongodb # Ensure MongoDB is up for backend
 
 # named volumes must be defined at the bottom of the file
 volumes:

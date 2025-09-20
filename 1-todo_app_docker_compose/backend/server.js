@@ -20,10 +20,10 @@ dotenv.config()
 
 // Load environment variables from .env file based on the NODE_ENV value
 if (process.env.NODE_ENV === 'development') {
-    console.log("in dev env");
+    console.log("in development env");
     dotenv.config({ path: './env/.env.development' });
 } else {
-    console.log("in prod env");
+    console.log("in production env");
     dotenv.config({ path: './env/.env.production' });
 }
 

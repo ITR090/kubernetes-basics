@@ -16,12 +16,12 @@ const HomePage = () => {
 
     const fetchNotes = async () => {
       try {
-        const res = await api.get('/notes');
-        console.log("Response status:", res);
+        const res = await api.get('/api/notes');
+
         if (res.status !== 200) {
           throw new Error('Failed to fetch notes');
         }
-        console.log(res.data);
+
         setNotes(res.data);
       } catch (error) {
         console.log("Error fetching notes");
@@ -29,7 +29,7 @@ const HomePage = () => {
         if (error.response?.status === 429) {
           toast.error("Too many requests: Please try again later.");
         } else if (error.status === 404) {
-          // toast.error("ERR_BAD_REQUEST");
+          
           console.log("ERR_BAD_REQUEST");
         }  else if (error.message) {
            toast.error(error.message);

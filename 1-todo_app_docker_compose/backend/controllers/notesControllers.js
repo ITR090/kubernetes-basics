@@ -7,7 +7,7 @@ export async function getAllNotes(req,res) {
     try {
         const notes = await Note.find().sort({createdAt: -1}) // Sort notes by createdAt in descending order
         if (!notes || notes.length === 0) { 
-            return res.status(404).json({message:"No notes found"})
+            return res.status(200).json({message:"No notes found"})
         }
         res.status(200).json(notes)
     } catch (error) {

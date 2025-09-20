@@ -36,3 +36,46 @@ cd backend
 npm install
 npm run start
 ```
+
+## Userfull Docker Commands 
+
+1. Start Docker Container 
+```
+docker-compose up -d
+```
+
+2. Re-Build images without running container
+```
+docker-compose up -d --build 
+```
+
+3. List Runing Containers
+```
+docker ps 
+```
+
+4. Run to shotdown and delete volumes
+```
+docker-compose down -v
+```
+
+5. To enter inside container
+```
+docker exec -it container name bash
+```
+
+6. To check container logs in case of any errors
+```
+docker logs container_id
+```
+
+7. To Remove an image
+```
+docker images 
+docker rmi image_id 
+```
+
+8. To list docker Network
+```
+docker network ls
+```
